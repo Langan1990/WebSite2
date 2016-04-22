@@ -1,0 +1,78 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 100%;
+        }
+        .style2
+        {
+            color: #3399FF;
+            width: 529px;
+        }
+        .style3
+        {
+            width: 529px;
+            background-color: #66CCFF;
+        }
+        .style4
+        {
+            background-color: #66CCFF;
+        }
+        .newStyle1
+        {
+            font-family: Arial;
+            font-size: large;
+            color: #0000CC;
+            background-color: #FFFF00;
+            border: thick double #0000CC;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="newStyle1">
+        <table class="style1">
+            <tr>
+                <td class="style2">
+                    <h1>
+                        VGS</h1>
+                </td>
+                <td>
+&nbsp;<asp:HyperLink ID="hlnkCart" runat="server" NavigateUrl="~/Cart.aspx">Cart</asp:HyperLink>
+                &nbsp;<asp:HyperLink ID="hlnkHome0" runat="server" NavigateUrl="~/Home.aspx">Home Page</asp:HyperLink>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td class="style3">
+                    Site Nav<br />
+                    <asp:HyperLink ID="hlnkCart0" runat="server" NavigateUrl="~/Cart.aspx">Cart</asp:HyperLink>
+                    <br />
+                    <asp:HyperLink ID="hlnkHome" runat="server" NavigateUrl="~/Home.aspx">Home Page</asp:HyperLink>
+                    <br />
+                </td>
+                <td class="style4">
+                    Contact Details:<br />
+                    123 Fake Street<br />
+                    Galway<br />
+                    Ireland</td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
