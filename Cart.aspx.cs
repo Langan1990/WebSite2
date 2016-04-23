@@ -9,6 +9,7 @@ using System.Collections;
 public partial class Cart : System.Web.UI.Page
 {
     private SortedList cart;
+    double totalPrice = 0;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -28,7 +29,7 @@ public partial class Cart : System.Web.UI.Page
     }
     private void DisplayCart()
     {
-        double totalPrice = 0;
+        
         lstCart.Items.Clear();
         Product item;
         foreach (DictionaryEntry entry in cart)
@@ -39,6 +40,7 @@ public partial class Cart : System.Web.UI.Page
             totalPrice += item.Price;
 
         }
+        GetTotal();
         lblPrice.Text = "Total Price: €" + totalPrice.ToString();
     }
     protected void btnRemove_Click(object sender, EventArgs e)
@@ -48,5 +50,18 @@ public partial class Cart : System.Web.UI.Page
             cart.RemoveAt(lstCart.SelectedIndex);
             this.DisplayCart();
         }
+    }
+
+    private void GetTotal()
+    {
+        if (Session["Total"] == null)
+        {
+            Session.Add("Total", new double());
+        }
+        Session["Total"] = totalPrice;
+    }
+    protected void btnCheckout_Click(object sender, EventArgs e)
+    {
+        GetTotal();
     }
 }

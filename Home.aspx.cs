@@ -11,7 +11,6 @@ public partial class Home : System.Web.UI.Page
 {
     private Product selectedProduct;
     int count;
-    int selectedColumnCount;
     
     protected void Page_Load(object sender, EventArgs e)
     {
